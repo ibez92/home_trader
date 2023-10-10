@@ -36,3 +36,6 @@
 
 /config/*.local.yml
 /config/credentials/local.*
+
+# Ignore local hooks.
+/lefthook-local.yml
