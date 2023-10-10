@@ -64,6 +64,7 @@ group :development do
   # gem "spring"
 
   gem 'rubocop', require: false
+  gem 'lefthook', require: false
 end
 
 group :test do
