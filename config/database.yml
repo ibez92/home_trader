@@ -22,24 +22,25 @@ default: &default
 development:
   <<: *default
   database: home_trader_development
+  url: <%= ENV.fetch("DB_URL", "postgres://app:keepinsecret@localhost:5432") %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: home_trader
+  # username: <%= ENV.fetch("DB_USER", "app") %>
 
   # The password associated with the postgres role (username).
-  #password:
+  # password: <%= ENV.fetch("DB_PASSWORD", "keepinsecret") %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  #host: localhost
+  # host: localhost
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  #port: 5432
+  # port: <%= ENV.fetch("DB_PORT", "5432") %>
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -56,6 +57,7 @@ development:
 test:
   <<: *default
   database: home_trader_test
+  url: <%= ENV.fetch("DB_URL", "postgres://app:keepinsecret@localhost:5432") %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,5 +82,4 @@ test:
 production:
   <<: *default
   database: home_trader_production
-  username: home_trader
-  password: <%= ENV["HOME_TRADER_DATABASE_PASSWORD"] %>
+  url: <%= ENV.fetch("DB_URL") %>

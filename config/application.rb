@@ -8,6 +8,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Dotenv::Railtie.load if %w[development test].include?(ENV['RAILS_ENV'])
+
 module HomeTrader
   class Application < Rails::Application
     # Configure the path for configuration classes that should be used before initialization

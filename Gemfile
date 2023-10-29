@@ -51,6 +51,8 @@ gem 'anyway_config'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
+
+  gem 'dotenv-rails', groups: %i[development test]
 end
 
 group :development do
